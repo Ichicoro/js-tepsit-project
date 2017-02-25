@@ -5,10 +5,88 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+    <div id="setupmenu">
+        <form>
+            <fieldset>
+                <legend>Difficulty</legend>
+                <select id="freddydifficulty" title="Imposta la difficoltà di Freddy.">
+                    <option value="0">0</option>
+                    <option value="1" selected="selected">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <select id="bonniedifficulty" title="Imposta la difficoltà di Bonnie.">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5" selected="selected">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <select id="chicadifficulty" title="Imposta la difficoltà di Chica.">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3" selected="selected">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <select id="foxydifficulty" title="Imposta la difficoltà di Foxy.">
+                    <option value="0" selected="selected">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </fieldset>
 
-<div id="viewport"></div>
+            <div style="margin: 20px 0px;">
+                <input type="button" value="Avvia gioco" onclick="startGame()" title="Avvia gioco" />
+            </div>
+        </form>
+    </div>
+    <div id="gamearea">
 
+        <div id="viewport">
+            <div id="officearea">
+                <img id="backgroundimg">
+                <div id="overlays">
+                    <img id="fanimg" src="assets/images/fan/57.png">
+                </div>
+                <div id="tabletui">
+                    <img id="fanimg" src="assets/images/fan/57.png">
+                </div>
+            </div>
+            <img id="camerabutton" src="">
+            <!-- <img id="leftdoor" src=""> -->
+        </div>
+    </div>
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="game.js"></script>
+<script type="text/javascript" src="vars.js"></script>
 </html>
