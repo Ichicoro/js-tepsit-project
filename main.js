@@ -9,14 +9,14 @@ $('document').ready(function() {
     //$('#gamearea').hide();
     startGame();
     changeBackground('assets/images/office_nolights.png');
-    animations_enabled ? setInterval(fanAnim, 50);
+    if (animations_enabled) { setInterval(fanAnim, 50); }
 });
 
 
 
 function fanAnim() {
     var str = fanimg_path + fans[fan_timer % 3] + '.png';
-    animations_enabled ? $('#fanimg').attr('src', str);
+    if (animations_enabled) { $('#fanimg').attr('src', str); }
     fan_timer++;
 }
 
@@ -41,5 +41,5 @@ function startGame() {
 }
 
 function setView() {
-
+    // will I ever need this?
 }

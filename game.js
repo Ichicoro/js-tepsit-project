@@ -46,6 +46,10 @@ function turnOnTablet() {
     tablet_active = true;
 }
 
+function updateTabletView() {
+    
+}
+
 
 function enableEnemies() {
     if (ai_enabled) {
@@ -79,6 +83,8 @@ function moveEnemies() {
         case 4: moveFoxy();
                 break;
     }
+
+    updateTabletView();
 }
 
 function genRandom(x) {
