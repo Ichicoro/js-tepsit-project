@@ -9,12 +9,15 @@ function changeBackground(x) {
     $('#backgroundimg').attr('src', x);
 }
 
+function changeTabletView(x) {
+    $('#tabletbg').attr('src', x);
+}
+
 
 function drainPower() {
     var powerdraw = DRAIN_PER_SECOND;
     if (left_door_closed) { powerdraw++; };
     if (right_door_closed) { powerdraw++; };
-
 }
 
 
@@ -22,12 +25,14 @@ function toggleTablet() {
     if (tablet_enabled) {
         if (tablet_active) {
             turnOffTablet();
+            console.log("Tablet switched off");
         } else {
             turnOnTablet();
+            console.log("Tablet switched on");
         }
-        console.log('tablet_active = ' + tablet_active);
+        /* console.log('tablet_active = ' + tablet_active); */
     } else {
-        console.log("Can't open the tablet. Is the player dead already?");
+        console.log("Can't open/close the tablet. Is the player dead already?");
         return false;
     }
 }
@@ -37,6 +42,7 @@ function turnOffTablet() {
     $('#overlays').show();
     $('#tabletui').hide();
     tablet_active = false;
+    updateTabletView();
 }
 
 function turnOnTablet() {
@@ -44,10 +50,23 @@ function turnOnTablet() {
     $('#overlays').hide();
     $('#tabletui').show();
     tablet_active = true;
+    updateTabletView();
 }
 
 function updateTabletView() {
-    
+    console.log("Camera pos: " + tablet_camera)
+    switch (tablet_camera) {
+        case "1a": update_1a(); break;
+        case "1b": update_1b(); break;
+        case "1c": update_1c(); break;
+        case "5": update_5(); break;
+        case "6": update_7(); break;
+        case "7": update_6(); break;
+        case "2a": update_2a(); break;
+        case "2b": update_2b(); break;
+        case "4a": update_4a(); break;
+        case "4b": update_4b(); break;
+    }
 }
 
 
