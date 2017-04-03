@@ -1,13 +1,13 @@
 function update_1a() {
-    if (enemy_pos[0] == "1a" && enemy_pos[1] == "1a" && enemy_pos[0] == "1a") {
+    if (enemy_pos[0] == "1a" && enemy_pos[1] == "1a" && enemy_pos[2] == "1a") {
         changeTabletView("assets/images/camera/show_stage/show_stage_all.png");
-    } else if (enemy_pos[0] == "1a" && enemy_pos[1] != "1a" && enemy_pos[0] == "1a") {
-        changeTabletView("assets/images/camera/show_stage/show_stage_freddy_bonnie.png");
-    } else if (enemy_pos[0] != "1a" && enemy_pos[1] == "1a" && enemy_pos[0] == "1a") {
+    } else if (enemy_pos[0] == "1a" && enemy_pos[1] != "1a" && enemy_pos[2] == "1a") {
         changeTabletView("assets/images/camera/show_stage/show_stage_freddy_chica.png");
-    } else if (enemy_pos[0] != "1a" && enemy_pos[1] != "1a" && enemy_pos[0] == "1a") {
-        changeTabletView("assets/images/camera/show_stage/show_stage_freddy.png");
-    } else if (enemy_pos[0] != "1a" && enemy_pos[1] != "1a" && enemy_pos[0] != "1a") {
+    } else if (enemy_pos[0] != "1a" && enemy_pos[1] == "1a" && enemy_pos[2] == "1a") {
+        changeTabletView("assets/images/camera/show_stage/show_stage_freddy_chica.png");
+    } else if (enemy_pos[0] != "1a" && enemy_pos[1] != "1a" && enemy_pos[2] == "1a") {
+        changeTabletView("assets/images/camera/show_stage/show_stage_all.png");
+    } else if (enemy_pos[0] != "1a" && enemy_pos[1] != "1a" && enemy_pos[2] != "1a") {
         changeTabletView("assets/images/camera/show_stage/show_stage_empty.png");
     }
 }

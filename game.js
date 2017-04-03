@@ -18,6 +18,31 @@ function drainPower() {
     var powerdraw = DRAIN_PER_SECOND;
     if (left_door_closed) { powerdraw++; };
     if (right_door_closed) { powerdraw++; };
+    if (BATTERY_LEVEL > 0) {
+        BATTERY_LEVEL -= powerdraw;
+    } else {
+        BATTERY_LEVEL = 0;
+    }
+    $('#powerleft_txt').text("Power left: " + BATTERY_LEVEL + "%");
+}
+
+
+function checkTimer() {
+    var timePassed = Date.now() - clock.valueOf(); // max value is 360000
+    if (timePassed <= 60000) {
+        $('#clock').text("1 AM");
+    } else if (timePassed <= 120000) {
+        $('#clock').text("2 AM");
+    } else if (timePassed <= 180000) {
+        $('#clock').text("3 AM");
+    } else if (timePassed <= 240000) {
+        $('#clock').text("4 AM");
+    } else if (timePassed <= 300000) {
+        $('#clock').text("5 AM");
+    } else {
+        clock = undefined;
+        win();
+    }
 }
 
 

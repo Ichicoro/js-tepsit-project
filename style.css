@@ -2,6 +2,31 @@ body {
     text-align: center;
     background-color: rgb(0,0,0);
     margin: 0px;
+    font-family: "Fnaf UI", "Fnaf UI Regular", monospace;
+    color: rgb(255, 255, 255);
+}
+
+@font-face {
+    font-family: "Fnaf UI";
+    src: url("assets/fonts/Fnaf UI.ttf");
+}
+
+#powerleft_txt {
+    position: absolute;
+    left: 30px;
+    top: 580px;
+}
+
+#clock {
+    position: absolute;
+    left: 30px;
+    top: 520px;
+}
+
+#powerusage_txt {
+    position: absolute;
+    left: 30px;
+    top: 550px;
 }
 
 #setupmenu {
@@ -26,7 +51,7 @@ body {
 
 #location {
     color: rgb(200,200,200);
-    font-family: "Helvetica Neue";
+    font-family: "Fnaf UI";
     font-weight: 200;
 }
 

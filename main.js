@@ -38,6 +38,9 @@ function startGame() {
     right_door_closed = false;
     difficulty = [0, 7, 4, 0];
     enemy_pos = ["1a", "1a", "1a", "1c-0"]; // freddy, bonnie, chica and foxy
+    BATTERY_TIMER = setInterval(drainPower, 1000);
+    clock = Date.now();
+    clock_timer = setInterval(checkTimer, 1000);
 }
 
 function setView() {
