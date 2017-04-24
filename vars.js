@@ -34,6 +34,7 @@ var DRAIN_PER_SECOND = 0.25;   // energy drain/s => 360000ms/100
 var DOOR_DRAIN_PER_SECOND = 0.5;
 var BATTERY_TIMER;
 var BATTERY_LEVEL = 100;
+var BATT_USAGE_NUM;
 
 var timers = [];
 var clock;

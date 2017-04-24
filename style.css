@@ -29,6 +29,12 @@ body {
     top: 550px;
 }
 
+#powerusage_imgs {
+    position: absolute;
+    left: 170px;
+    top: 547.5px;
+}
+
 #setupmenu {
     text-align: center;
     position: fixed;

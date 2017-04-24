@@ -18,12 +18,22 @@ function drainPower() {
     var powerdraw = DRAIN_PER_SECOND;
     if (left_door_closed) { powerdraw++; };
     if (right_door_closed) { powerdraw++; };
+    if (tablet_active) { powerdraw++; };
     if (BATTERY_LEVEL > 0) {
         BATTERY_LEVEL -= powerdraw;
     } else {
         BATTERY_LEVEL = 0;
     }
     $('#powerleft_txt').text("Power left: " + BATTERY_LEVEL + "%");
+}
+
+function updateUsage() {
+    var imgnum = 1;
+    if (left_door_closed) { imgnum++ };
+    if (right_door_closed) { imgnum++ };
+    if (tablet_active) { imgnum++ };
+    var img = "assets/images/power/" + imgnum + "block.png";
+    $('#powerusage_imgs').attr('src', img);
 }
 
 

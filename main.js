@@ -6,10 +6,9 @@
 
 
 $('document').ready(function() {
-    //$('#gamearea').hide();
     startGame();
     changeBackground('assets/images/office_nolights.png');
-    if (animations_enabled) { setInterval(fanAnim, 50); }
+    setInterval(fanAnim, 50);
 });
 
 
@@ -41,6 +40,7 @@ function startGame() {
     BATTERY_TIMER = setInterval(drainPower, 1000);
     clock = Date.now();
     clock_timer = setInterval(checkTimer, 1000);
+    setInterval(updateUsage, 50);
 }
 
 function setView() {
