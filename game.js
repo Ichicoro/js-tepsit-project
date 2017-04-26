@@ -104,6 +104,41 @@ function updateTabletView() {
     }
 }
 
+function cameraSwitchHandler(x) {
+    if (getCamId(tablet_camera) != x) {
+        switch (x) {
+            case 1: tablet_camera = "1a"; break;
+            case 2: tablet_camera = "1b"; break;
+            case 3: tablet_camera = "1c"; break;
+            case 4: tablet_camera = "5"; break;
+            case 5: tablet_camera = "6"; break;
+            case 6: tablet_camera = "7"; break;
+            case 7: tablet_camera = "2a"; break;
+            case 8: tablet_camera = "2b"; break;
+            case 9: tablet_camera = "4a"; break;
+            case 0: tablet_camera = "4b"; break;
+        }
+        //console.log(tablet_camera);
+        updateTabletView();
+    } else {
+        console.log("Already in the same room...");
+    }
+}
+
+function getCamId(x) {
+    switch (x) {
+        case "1a": return 1;
+        case "1b": return 2;
+        case "1c": return 3;
+        case "5": return 4;
+        case "6": return 5;
+        case "7": return 6;
+        case "2a": return 7;
+        case "2b": return 8;
+        case "4a": return 9;
+        case "4b": return 0;
+    }
+}
 
 function enableEnemies() {
     if (ai_enabled) {
@@ -117,7 +152,7 @@ function moveEnemies() {
      *  1a is the show stage, or the "starting room" for bonnie, freddy and Chica.
      *  1b is the dining room.
      *  1c-[0..2] is the Pirate Cove, where Foxy stays until s/he runs to the office (ff) through the left-side corridors (2[a-b]).
-     *  5 is the repair room, only Freddy can get here.
+     *  5 is the backstage, only Freddy can get here.
      *  7 is the bathrooms, only Chica can get here.
      *  6 is the kitchen. Only Chica and Freddy can get here and there's no video feed.
      *  2a and 2b are the left-side corridors. Beware Bonnie and Foxy!
@@ -139,14 +174,6 @@ function moveEnemies() {
     }
 
     updateTabletView();
-}
-
-function genRandom(x) {
-    if (isNaN(x)) {
-        return Math.floor((Math.random() * 10) + 1);
-    } else {
-        return Math.floor((Math.random() * x) + 1);
-    }
 }
 
 
