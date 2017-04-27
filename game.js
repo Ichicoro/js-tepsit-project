@@ -13,12 +13,17 @@ function changeTabletView(x) {
     $('#tabletbg').attr('src', x);
 }
 
+function tabletNoiseAnim() {
+    $('#tabletnoise').attr('src', "assets/images/noise/noise_" + tablet_noise_timer%8 + ".png");
+    tablet_noise_timer++;
+}
+
 
 function drainPower() {
     var powerdraw = DRAIN_PER_SECOND;
-    if (left_door_closed) { powerdraw++; };
-    if (right_door_closed) { powerdraw++; };
-    if (tablet_active) { powerdraw++; };
+    if (left_door_closed) { powerdraw+=0.5; };
+    if (right_door_closed) { powerdraw+=0.5; };
+    if (tablet_active) { powerdraw+=0.5; };
     if (BATTERY_LEVEL > 0) {
         BATTERY_LEVEL -= powerdraw;
     } else {
@@ -153,9 +158,9 @@ function moveEnemies() {
      *  1b is the dining room.
      *  1c-[0..2] is the Pirate Cove, where Foxy stays until s/he runs to the office (ff) through the left-side corridors (2[a-b]).
      *  5 is the backstage, only Freddy can get here.
-     *  7 is the bathrooms, only Chica can get here.
+     *  7 is the bathrooms, only Chica and Freddy can get here.
      *  6 is the kitchen. Only Chica and Freddy can get here and there's no video feed.
-     *  2a and 2b are the left-side corridors. Beware Bonnie and Foxy!
+     *  2a and 2b are the left-side corridors. Beware Bonnie (...and Foxy)!
      *  4a and 4b are the right-side corridors. Beware Chica and Freddy!
      *  ff is the office.
      *  ld is the left office door

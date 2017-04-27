@@ -4,10 +4,6 @@
 
 // not yet.
 
-function genRandom(x) {
-    if (isNaN(x)) {
-        return Math.floor((Math.random() * 10) + 1);
-    } else {
-        return Math.floor((Math.random() * x) + 1);
-    }
+function genRandom(x = 10) {
+    return Math.floor((Math.random() * x) + 1);
 }

@@ -41,6 +41,7 @@ function startGame() {
     clock = Date.now();
     clock_timer = setInterval(checkTimer, 1000);
     setInterval(updateUsage, 50);
+    setInterval(tabletNoiseAnim, 50);
     //setInterval(updateTabletView, 100);
 }
 

@@ -16,6 +16,8 @@ var fan_timer = 3;
 var tablet_enabled = true;
 var tablet_active = false;
 var tablet_camera = "1a";
+var tablet_noise;
+var tablet_noise_timer = 1;
 
 var animations_enabled = true;
 

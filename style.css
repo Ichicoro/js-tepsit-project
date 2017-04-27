@@ -70,12 +70,17 @@ body {
     position: relative;
 }
 
-#tabletbg {
+#tabletbg, #tabletnoise {
     width: 1366px;
     height: 614.69px;
     position: absolute;
     top: 0px;
     left: 0px;
+}
+
+#tabletnoise {
+    opacity: 0.08;
+    z-index:10;
 }
 
 #backgroundimg {
