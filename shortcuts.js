@@ -1,33 +1,71 @@
-Mousetrap.bind("1", function() {
-    cameraSwitchHandler(1);
+Mousetrap.bind("w", function(e) {
+    cameraSwitchHandler("1a");
+    e.preventDefault();
+    return false;
 });
+
 Mousetrap.bind("2", function() {
-    cameraSwitchHandler(2);
+    cameraSwitchHandler("1b");
+    return false;
 });
+
+Mousetrap.bind("tab", function(e) {
+    cameraSwitchHandler("3");
+    e.preventDefault();
+    return false;
+});
+
+Mousetrap.bind("1", function() {
+    cameraSwitchHandler("5");
+    return false;
+});
+
+Mousetrap.bind("r", function() {
+    cameraSwitchHandler("6");
+    return false;
+});
+
 Mousetrap.bind("3", function() {
-    cameraSwitchHandler(3);
+    cameraSwitchHandler("7");
+    return false;
 });
-Mousetrap.bind("4", function() {
-    cameraSwitchHandler(4);
+
+Mousetrap.bind("q", function() {
+    cameraSwitchHandler("2a");
+    return false;
 });
-Mousetrap.bind("5", function() {
-    cameraSwitchHandler(5);
+
+Mousetrap.bind("a", function() {
+    cameraSwitchHandler("2b");
+    return false;
 });
-Mousetrap.bind("6", function() {
-    cameraSwitchHandler(6);
+
+Mousetrap.bind("e", function() {
+    cameraSwitchHandler("4a");
+    return false;
 });
-Mousetrap.bind("7", function() {
-    cameraSwitchHandler(7);
+
+Mousetrap.bind("d", function() {
+    cameraSwitchHandler("4b");
+    return false;
 });
-Mousetrap.bind("8", function() {
-    cameraSwitchHandler(8);
-});
-Mousetrap.bind("9", function() {
-    cameraSwitchHandler(9);
-});
-Mousetrap.bind("0", function() {
-    cameraSwitchHandler(0);
-});
+
 Mousetrap.bind("space", function() {
     toggleTablet();
+    return false;
+});
+
+Mousetrap.bind("z", function() {
+    toggleLeftDoor();
+    return false;
+});
+
+Mousetrap.bind("c", function() {
+    toggleRightDoor();
+    return false;
+});
+
+Mousetrap.bind("x", function() {
+    toggleLeftLight();
+    return false;
 });

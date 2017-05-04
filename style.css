@@ -15,24 +15,35 @@ body {
     position: absolute;
     left: 30px;
     top: 580px;
+    z-index: 5;
 }
 
 #clock {
     position: absolute;
     left: 30px;
     top: 520px;
+    z-index: 5;
 }
 
 #powerusage_txt {
     position: absolute;
     left: 30px;
     top: 550px;
+    z-index: 5;
 }
 
 #powerusage_imgs {
     position: absolute;
     left: 170px;
     top: 547.5px;
+    z-index: 5;
+}
+
+#camerapos {
+    position: absolute;
+    left: 30px;
+    top: 15px;
+    z-index: 5;
 }
 
 #setupmenu {
@@ -55,6 +66,25 @@ body {
     height: 100vh;
 }
 
+#leftlight, #rightlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 1366px;
+    height: 614.5px;
+}
+
+#leftdoor, #rightdoor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 1366px;
+    height: 614.3px;
+    display: none;
+}
+
 #location {
     color: rgb(200,200,200);
     font-family: "Fnaf UI";
@@ -70,22 +100,45 @@ body {
     position: relative;
 }
 
+#jumpscare {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 1366px;
+    height: 617px;
+    z-index: 20;
+    display: none;
+}
+
 #tabletbg, #tabletnoise {
     width: 1366px;
     height: 614.69px;
     position: absolute;
     top: 0px;
     left: 0px;
+    z-index: 5;
+}
+
+#camerapos_text {
+    position: absolute;
+    top: 15px;
+    left: 30px;
+    z-index: 6;
 }
 
 #tabletnoise {
     opacity: 0.08;
-    z-index:10;
+    z-index: 8;
 }
 
 #backgroundimg {
     max-width:100%;
     max-height:100%;
+    z-index: inherit;
+}
+
+#officearea {
+    z-index: 0;
 }
 
 #fanimg {
@@ -94,10 +147,13 @@ body {
     top: 259px;
     height: 23.2%;
     width: 8.65%;
+    z-index: 2;
 }
 
-#leftdoor {
-    position: absolute;
-    left: 665px;
-    top: 259px;
+#overlays {
+    z-index: 1;
+}
+
+#hud {
+    z-index: 5;
 }

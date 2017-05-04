@@ -16,6 +16,7 @@ function update_1a() {
     } else if (enemy_pos[0] != "1a" && enemy_pos[1] != "1a" && enemy_pos[2] != "1a") {
         changeTabletView("assets/images/camera/show_stage/show_stage_empty.png");
     }
+    setCamText("Show Stage");
 }
 
 function update_1b() {
@@ -26,39 +27,41 @@ function update_1b() {
     } else if (enemy_pos[1] == "1b"/* && enemy_pos[2] != "1a"*/) {
         changeTabletView("assets/images/camera/dining_room/dining_room_bonnie_1.png");
     }
+    setCamText("Dining Room");
 }
 
 function update_1c() {
-    /* if (enemy_pos[0] == "1a" && enemy_pos[1] == "1a" && enemy_pos[2] == "1a") {
-        changeTabletView("assets/images/camera/show_stage/show_stage_all.png");
-    } else if (enemy_pos[0] == "1a" && enemy_pos[1] != "1a" && enemy_pos[2] == "1a") {
-        changeTabletView("assets/images/camera/show_stage/show_stage_freddy_chica.png");
-    } else if (enemy_pos[0] != "1a" && enemy_pos[1] == "1a" && enemy_pos[2] == "1a") {
-        changeTabletView("assets/images/camera/show_stage/show_stage_freddy_chica.png");
-    } else if (enemy_pos[0] != "1a" && enemy_pos[1] != "1a" && enemy_pos[2] == "1a") {
-        changeTabletView("assets/images/camera/show_stage/show_stage_all.png");
-    } else if (enemy_pos[0] != "1a" && enemy_pos[1] != "1a" && enemy_pos[2] != "1a") {
-        changeTabletView("assets/images/camera/show_stage/show_stage_empty.png");
-    } */
     changeTabletView("assets/images/camera/pirate_cove_1.png");
+    setCamText("Pirate Cove");
+}
+
+function update_3() {
+    if (enemy_pos[1] == "3") {
+        changeTabletView("assets/images/camera/supply_closet/supply_closet_bonnie.png");
+    } else {
+        changeTabletView("assets/images/camera/supply_closet/supply_closet_empty.png");
+    }
+    setCamText("Supply Closet");
 }
 
 function update_5() {
     if (enemy_pos[1] == "5") {
         switch (genRandom(5)) {
-            case 1: case 2: case 3: case 4: changeTabletView("assets/images/camera/backstage/backstage_bonnie.png"); break;
-            case 5: changeTabletView("assets/images/camera/backstage/backstage_bonnie_creepy.png"); break;
+            case 1: changeTabletView("assets/images/camera/backstage/backstage_bonnie_creepy.png"); break;
+            default: changeTabletView("assets/images/camera/backstage/backstage_bonnie.png"); break;
         }
     } else {
         switch (genRandom(5)) {
-            case 1: case 2: case 3: case 4: changeTabletView("assets/images/camera/backstage/backstage_empty.png"); break;
-            case 5: changeTabletView("assets/images/camera/backstage/backstage_empty_creepy.png"); break;
+            case 1: changeTabletView("assets/images/camera/backstage/backstage_empty_creepy.png"); break;
+            default: changeTabletView("assets/images/camera/backstage/backstage_empty.png"); break;
         }
     }
+    setCamText("Backstage");
 }
 
 function update_6() {
-    // kitchen?
+    changeTabletView("assets/images/camera/kitchen.png");
+    setCamText("Kitchen [AUDIO ONLY]");
 }
 
 function update_7() {
@@ -68,12 +71,13 @@ function update_7() {
         changeTabletView("assets/images/camera/restroom/restroom_freddy.png");
     } else if (enemy_pos[2] == "7") {
         switch (genRandom(5)) {
-            case 1: case 2: case 3: case 4: changeTabletView("assets/images/camera/restroom/restroom_chica.png"); break;
-            case 5: changeTabletView("assets/images/camera/restroom/restroom_chica_creepy.png"); break;
+            case 1: changeTabletView("assets/images/camera/restroom/restroom_chica_creepy.png"); break;
+            default: changeTabletView("assets/images/camera/restroom/restroom_chica.png"); break;
         }
     } else {
         changeTabletView("assets/images/camera/restroom/restroom_empty.png");
     }
+    setCamText("Restroom");
 }
 
 function update_2a() {
@@ -86,17 +90,19 @@ function update_2a() {
             changeTabletView("assets/images/camera/left_corridor/left_corridor_empty.png");
         }
     }
+    setCamText("Left Corridor");
 }
 
 function update_2b() {
     if (enemy_pos[1] == "2b") {
         switch (genRandom(5)) {
-            case 1: case 2: case 3: case 4: changeTabletView("assets/images/camera/left_corner/left_corner_bonnie.png"); break;
-            case 5: changeTabletView("assets/images/camera/left_corner/left_corner_bonnie_creepy.png"); break;
+            case 1: changeTabletView("assets/images/camera/left_corner/left_corner_bonnie_creepy.png"); break;
+            default: changeTabletView("assets/images/camera/left_corner/left_corner_bonnie.png"); break;
         }
     } else {
         changeTabletView("assets/images/camera/left_corner/left_corner_empty.png");
     }
+    setCamText("Left Corner");
 }
 
 function update_4a() {
@@ -113,13 +119,14 @@ function update_4a() {
             default: changeTabletView("assets/images/camera/right_corridor/right_corridor_empty.png");break;
         }
     }
+    setCamText("Right Corridor");
 }
 
 function update_4b() {
     if (enemy_pos[2] == "4b") {
         switch (genRandom(5)) {
-            case 1: case 2: case 3: case 4: changeTabletView("assets/images/camera/right_corner/right_corner_chica.png"); break;
-            case 5: changeTabletView("assets/images/camera/right_corner/right_corner_chica_creepy.png"); break;
+            case 1: changeTabletView("assets/images/camera/right_corner/right_corner_chica_creepy.png"); break;
+            default: changeTabletView("assets/images/camera/right_corner/right_corner_chica.png"); break;
         }
     } else if (enemy_pos[0] == "4b") {
         changeTabletView("assets/images/camera/right_corner/right_corner_freddy_creepy.png");
@@ -132,4 +139,5 @@ function update_4b() {
             default: changeTabletView("assets/images/camera/right_corner/right_corner_empty.png"); break;
         }
     }
+    setCamText("Right Corner");
 }

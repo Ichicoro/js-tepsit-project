@@ -7,11 +7,19 @@
 
 $('document').ready(function() {
     startGame();
-    changeBackground('assets/images/office_nolights.png');
+    changeBackground('assets/images/office_off.png');
+    $('#leftlight').attr('src', "assets/images/office/office_leftlight.png");
+    $('#leftlight').hide();
+    $('#rightlight').hide();
     setInterval(fanAnim, 50);
+    setInterval(tabletNoiseAnim, 50);
 });
 
-
+function tabletNoiseAnim() {
+    //$('#tabletnoise').attr('src', "assets/images/noise/noise_" + tablet_noise_timer%8 + ".png");
+    //tablet_noise_timer++;
+    $('#tabletnoise').attr('src', "assets/images/noise/noise_" + genRandom(8) + ".png");
+}
 
 function fanAnim() {
     var str = fanimg_path + fans[fan_timer % 3] + '.png';
@@ -19,6 +27,9 @@ function fanAnim() {
     fan_timer++;
 }
 
+function setCamText(x) {
+    $('#camerapos_text').text(x);
+}
 
 
 function startGame() {
@@ -39,12 +50,12 @@ function startGame() {
     enemy_pos = ["1a", "1a", "1a", "1c-0"]; // freddy, bonnie, chica and foxy
     BATTERY_TIMER = setInterval(drainPower, 1000);
     clock = Date.now();
+    enableEnemies();
     clock_timer = setInterval(checkTimer, 1000);
     setInterval(updateUsage, 50);
-    setInterval(tabletNoiseAnim, 50);
     //setInterval(updateTabletView, 100);
 }
 
 function setView() {
-    // will I ever need this?
+
 }

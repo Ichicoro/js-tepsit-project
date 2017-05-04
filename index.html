@@ -48,19 +48,6 @@
                         <option value="9">9</option>
                         <option value="10">10</option>
                     </select>
-                    <select id="foxydifficulty" title="Imposta la difficoltà di Foxy.">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
                 </fieldset>
 
                 <div style="margin: 20px 0px;">
@@ -73,6 +60,10 @@
             <div id="viewport">
                 <div id="officearea">
                     <img id="backgroundimg">
+                    <img id="leftlight" src="">
+                    <img id="rightlight" src="">
+                    <img id="leftdoor" src="">
+                    <img id="rightdoor" src="">
                     <div id="overlays">
                         <img id="fanimg" src="assets/images/fan/57.png">
                     </div>
@@ -80,6 +71,7 @@
                 <div id="tabletui">
                     <img id="tabletnoise">
                     <img id="tabletbg">
+                    <span id="camerapos_text">Show Stage</span>
                 </div>
                 <div id="hud">
                     <span id="clock">1 AM</span>
@@ -87,12 +79,13 @@
                     <span id="powerusage_txt">Power usage: </span> <img id="powerusage_imgs" src="assets/images/power/1block.png"></span>
                     <img id="camerabutton" src="">
                 </div>
+                <img id="jumpscare">
                 <!-- <img id="leftdoor" src=""> -->
                 <!-- <img id="rightdoor" src=""> -->
             </div>
         </div>
     </body>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="main.js"></script>
     <script type="text/javascript" src="game.js"></script>
     <script type="text/javascript" src="vars.js"></script>
@@ -100,4 +93,6 @@
     <script type="text/javascript" src="mousetrap.min.js"></script>
     <script type="text/javascript" src="shortcuts.js"></script>
     <script type="text/javascript" src="cameraupdates.js"></script>
+    <script type="text/javascript" src="jumpscares.js"></script>
+    <script type="text/javascript" src="sounds.js"></script>
 </html>
