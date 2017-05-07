@@ -55,17 +55,22 @@ Mousetrap.bind("space", function() {
     return false;
 });
 
-Mousetrap.bind("z", function() {
+Mousetrap.bind("x", function() {
     toggleLeftDoor();
     return false;
 });
 
-Mousetrap.bind("c", function() {
+Mousetrap.bind("v", function() {
     toggleRightDoor();
     return false;
 });
 
-Mousetrap.bind("x", function() {
+Mousetrap.bind("z", function() {
     toggleLeftLight();
+    return false;
+});
+
+Mousetrap.bind("c", function() {
+    toggleRightLight();
     return false;
 });

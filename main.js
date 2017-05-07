@@ -6,10 +6,11 @@
 
 
 $('document').ready(function() {
-    startGame();
+    //startGame();
     changeBackground('assets/images/office_off.png');
     $('#leftlight').attr('src', "assets/images/office/office_leftlight.png");
     $('#leftlight').hide();
+    $('#rightlight').attr('src', "assets/images/office/office_rightlight.png");
     $('#rightlight').hide();
     setInterval(fanAnim, 50);
     setInterval(tabletNoiseAnim, 50);
@@ -40,13 +41,13 @@ function startGame() {
     $('#camerabutton').click(function(event) {
         toggleTablet();
     });
-    turnOffTablet();
+    $("#tabletui").hide();
     tablet_enabled = true;
     tablet_active = false;
     animations_enabled = true;
     left_door_closed = false;
     right_door_closed = false;
-    difficulty = [0, 7, 4, 0];
+    difficulty = [$('#freddydifficulty').val(), $('#bonniedifficulty').val(), $('#chicadifficulty').val()];
     enemy_pos = ["1a", "1a", "1a", "1c-0"]; // freddy, bonnie, chica and foxy
     BATTERY_TIMER = setInterval(drainPower, 1000);
     clock = Date.now();

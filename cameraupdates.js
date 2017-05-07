@@ -22,10 +22,12 @@ function update_1a() {
 function update_1b() {
     if (enemy_pos[1] != "1b" && enemy_pos[2] != "1b") {
         changeTabletView("assets/images/camera/dining_room/dining_room_empty.png");
-    } else if (/*enemy_pos[1] != "1a" && */enemy_pos[2] == "1b") {
+    } else if (enemy_pos[1] != "1b" && enemy_pos[2] == "1b") {
         changeTabletView("assets/images/camera/dining_room/dining_room_chica_1.png");
-    } else if (enemy_pos[1] == "1b"/* && enemy_pos[2] != "1a"*/) {
+    } else if (enemy_pos[1] == "1b" && enemy_pos[2] != "1b") {
         changeTabletView("assets/images/camera/dining_room/dining_room_bonnie_1.png");
+    } else if (enemy_pos[1] == "1b" && enemy_pos[2] == "1b") {
+        changeTabletView("assets/images/camera/dining_room/dining_room_bonnie_chica.png");
     }
     setCamText("Dining Room");
 }

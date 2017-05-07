@@ -119,6 +119,16 @@ body {
     z-index: 5;
 }
 
+#tabletanim {
+    width: 1366px;
+    height: 614.69px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 19;
+    display: none;
+}
+
 #camerapos_text {
     position: absolute;
     top: 15px;

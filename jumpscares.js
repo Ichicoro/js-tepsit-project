@@ -1,5 +1,13 @@
 function playFreddyJumpscareAnim() {
-
+    $('#overlays').hide();
+    $('#jumpscare').show();
+    $('#jumpscare').attr("src", "assets/images/jumpscares/freddy_jumpscare.gif");
+    screamaudio.play();
+    setTimeout(() => {
+        $('#jumpscare').hide();
+        screamaudio.pause();
+        location.reload();
+    }, 1450);
 }
 
 function playBonnieJumpscareAnim() {
@@ -15,5 +23,13 @@ function playBonnieJumpscareAnim() {
 }
 
 function playChicaJumpscareAnim() {
-
+    $('#overlays').hide();
+    $('#jumpscare').show();
+    $('#jumpscare').attr("src", "assets/images/jumpscares/chica_jumpscare.gif");
+    screamaudio.play();
+    setTimeout(() => {
+        $('#jumpscare').hide();
+        screamaudio.pause();
+        location.reload();
+    }, 1500);
 }
