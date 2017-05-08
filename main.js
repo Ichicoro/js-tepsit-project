@@ -38,6 +38,7 @@ function startGame() {
     $('#setupmenu').hide();
     $('#camerabutton').attr('src', camerabutton);
     $('#leftdoor').attr('src', leftdoorimg_closed);
+    $('#rightdoor').attr('src', "assets/images/office/right_door_closed.png");
     $('#camerabutton').click(function(event) {
         toggleTablet();
     });

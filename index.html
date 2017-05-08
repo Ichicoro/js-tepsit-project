@@ -3,55 +3,64 @@
     <head>
         <title>JS</title>
         <link rel="stylesheet" type="text/css" href="style.css">
+        <meta charset="utf-8">
     </head>
     <body>
         <div id="setupmenu">
             <form>
                 <fieldset>
                     <legend>Difficulty</legend>
-                    <select id="freddydifficulty" title="Imposta la difficoltà di Freddy.">
+                    <span>Freddy</span>
+                    <select id="freddydifficulty" title="Imposta la difficolta' di Freddy.">
                         <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
-                        <option value="5" selected="selected">5</option>
+                        <option value="5">5</option>
                         <option value="6">6</option>
                         <option value="7">7</option>
-                        <option value="8">8</option>
+                        <option value="8" selected="selected">8</option>
                         <option value="9">9</option>
                         <option value="10">10</option>
                     </select>
+                    <br/>
+                    <span>Bonnie</span>
                     <select id="bonniedifficulty" title="Imposta la difficoltà di Bonnie.">
                         <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
-                        <option value="5" selected="selected">5</option>
+                        <option value="5">5</option>
                         <option value="6">6</option>
-                        <option value="7">7</option>
+                        <option value="7" selected="selected">7</option>
                         <option value="8">8</option>
                         <option value="9">9</option>
                         <option value="10">10</option>
                     </select>
+                    <br/>
+                    <span>Chica</span>
                     <select id="chicadifficulty" title="Imposta la difficoltà di Chica.">
                         <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
-                        <option value="5" selected="selected">5</option>
+                        <option value="5">5</option>
                         <option value="6">6</option>
                         <option value="7">7</option>
                         <option value="8">8</option>
-                        <option value="9">9</option>
+                        <option value="9" selected="selected">9</option>
                         <option value="10">10</option>
                     </select>
+                    <br/>
+                    <span id="reccomendation">(It is reccomended to set a higher difficulty, as the AI is not
+                        well optimized and lower settings may result in a boring experience. Enjoy!)</span>
                 </fieldset>
 
                 <div style="margin: 20px 0px;">
-                    <input type="button" value="Avvia gioco" onclick="startGame()" title="Avvia gioco" />
+                    <input type="button" value="Start game" onclick="startGame()" title="Start game" />
                 </div>
             </form>
         </div>
@@ -81,6 +90,7 @@
                     <img id="camerabutton" src="">
                 </div>
                 <img id="jumpscare">
+                <img id="win">
                 <!-- <img id="leftdoor" src=""> -->
                 <!-- <img id="rightdoor" src=""> -->
             </div>

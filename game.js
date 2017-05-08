@@ -13,10 +13,11 @@
     musicbox.pause();
     $('#hud').hide();
     $('#overlays').hide();
-    $('#jumpscare').css('opacity', '0.00');
-    $('#jumpscare').attr('src', 'assets/images/jumpscares/win.png');
-    $('#jumpscare').show();
-    $('#jumpscare').fadeTo(2000, 1);
+    $('#jumpscare').hide();
+    $('#win').css('opacity', '0.00');
+    $('#win').attr('src', 'assets/images/jumpscares/win.png');
+    $('#win').show();
+    $('#win').fadeTo(2000, 1);
     dingdongdang.play();
     setTimeout(() => {
         victoryaudio.play();
@@ -38,6 +39,7 @@ function drainPower() {
     var powerdraw = DRAIN_PER_SECOND;
     if (left_door_closed) { powerdraw+=0.5; };
     if (right_door_closed) { powerdraw+=0.5; };
+    if (left_light_on || right_light_on) { powerdraw+= 0.5; };
     if (tablet_active) { powerdraw+=0.5; };
     if (BATTERY_LEVEL > 0) {
         BATTERY_LEVEL -= powerdraw;
@@ -83,6 +85,10 @@ function noBatteryLeft() {
     var timerto = 0;
     tablet_enabled = false;
     dead = true;
+    $("#leftdoor").hide();
+    $("#rightdoor").hide();
+    $("#leftlight").hide();
+    $("#rightlight").hide();
     if (tablet_active) {
         turnOffTablet();
         timerto = 33.4*9;
@@ -199,6 +205,9 @@ function turnOnTablet() {
 
 function toggleLeftDoor() {
     if (!dead) {
+        dooraudio.pause();
+        dooraudio.currentTime = 0;
+        dooraudio.play();
         if (left_door_closed) {
             $('#leftdoor').hide();
             left_door_closed = false;
@@ -211,6 +220,9 @@ function toggleLeftDoor() {
 
 function toggleRightDoor() {
     if (!dead) {
+        dooraudio.pause();
+        dooraudio.currentTime = 0;
+        dooraudio.play();
         if (right_door_closed) {
             $('#rightdoor').hide();
             right_door_closed = false;
@@ -223,22 +235,30 @@ function toggleRightDoor() {
 
 
 function toggleLeftLight() {
-    if (!dead) {
+    if (!dead && !right_light_on) {
         if (left_light_on) {
             $('#leftlight').hide();
+            windowscareaudio.pause();
         } else {
             $('#leftlight').show();
+            if (enemy_pos[1] == "ld") {
+                windowscareaudio.play();
+            }
         }
         left_light_on = left_light_on ? false : true;
     }
 }
 
 function toggleRightLight() {
-    if (!dead) {
+    if (!dead && !left_light_on) {
         if (right_light_on) {
             $('#rightlight').hide();
+            windowscareaudio.pause();
         } else {
             $('#rightlight').show();
+            if (enemy_pos[2] == "rd") {
+                windowscareaudio.play();
+            }
         }
         right_light_on = right_light_on ? false : true;
     }
@@ -325,8 +345,8 @@ function moveEnemies() {
         }
     } else {
         switch (genRandom(3)) {
-            case 1: //moveFreddy();
-                    //break;
+            case 1: moveFreddy();
+                    break;
             case 2: moveBonnie();
                     break;
             case 3: moveChica();
@@ -340,45 +360,23 @@ function moveEnemies() {
 
 
 function moveFreddy() {
-    if (genRandom() <= difficulty[0]) {
-        if (enemy_pos[1] == '1a') {
-            enemy_pos[1] = '1b';
-        } else if (enemy_pos[1] == '1b') {
-            enemy_pos[1] = '2a';
-        } else if (enemy_pos[1] == '2a') {
-            switch (genRandom(3)) {
-                case 1: enemy_pos[1] = '2b';
-                        break;
-                case 2: enemy_pos[1] = '3';
-                        break;
-                case 3: enemy_pos[1] = '2a';
-                        break;
-            }
-        } else if (enemy_pos[1] == '2b') {
-            switch (genRandom(5)) {
-                case 1: case 4: enemy_pos[1] = 'ld';
-                        $('#leftlight').attr('src', "assets/images/office/office_leftlight_bonnie.png");
-                        break;
-                case 2: enemy_pos[1] = '3';
-                        break;
-                case 3: case 5: enemy_pos[1] = '2a';
-                        break;
-            }
-        } else if (enemy_pos[1] == '3') {
-            switch (genRandom(3)) {
-                case 1: enemy_pos[1] = '2a';
-                        break;
-                case 2: enemy_pos[1] = '2b';
-                        break;
-                case 3: enemy_pos[1] = '1b';
-                        break;
-            }
-        } else if (enemy_pos[1] == 'ld') {
-            tryToKill(1);
+    if (genRandom() <= difficulty[0] && enemy_pos[1]!="1a" && enemy_pos[2]!="1a") {
+        if (enemy_pos[0] == '1a') {
+            enemy_pos[0] = '1b';
+        } else if (enemy_pos[0] == '1b') {
+            enemy_pos[0] = '7';
+        } else if (enemy_pos[0] == '7') {
+            enemy_pos[0] = '6';
+        } else if (enemy_pos[0] == '6') {
+            enemy_pos[0] = '4a';
+        } else if (enemy_pos[0] == '4a') {
+            enemy_pos[0] = '4b';
+        } else if (enemy_pos[0] == '4b') {
+            tryToKill(0);
         }
     }
-    console.log(enemy_pos[1]);
-    return enemy_pos[1];
+    console.log(enemy_pos[0]);
+    return enemy_pos[0];
 }
 
 function moveBonnie() {
@@ -492,7 +490,14 @@ function moveChica() { // 1a, 1b, 4a, 4b, 6, 7
 }
 
 function tryToKill(x) {
-    if (x==1) {
+    if (x==0) {
+        if (right_door_closed) {
+            enemy_pos[0] == '1b';
+        } else {
+            enemy_pos[0] = 'ff';
+            killPlayer(x);
+        }
+    } else if (x==1) {
         if (left_door_closed) {
             switch (genRandom(5)) {
                 case 1: enemy_pos[1] = '2a';
